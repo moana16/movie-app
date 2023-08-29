@@ -601,7 +601,33 @@ class App extends (0, _jimin.Component) {
 }
 exports.default = App;
 
-},{"./core/jimin":"cc3nh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./componets/TheHeader":"kmAYJ","./componets/TheFooter":"dBS3Y"}],"cc3nh":[function(require,module,exports) {
+},{"./componets/TheFooter":"dBS3Y","./componets/TheHeader":"kmAYJ","./core/jimin":"cc3nh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dBS3Y":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jimin = require("../core/jimin");
+var _about = require("../store/about");
+var _aboutDefault = parcelHelpers.interopDefault(_about);
+class TheFooter extends (0, _jimin.Component) {
+    constructor(){
+        super({
+            tagName: "footer"
+        });
+    }
+    render() {
+        const { github } = (0, _aboutDefault.default).state;
+        this.el.innerHTML = `
+            <div>
+                <a href="${github}">GitHub Repository</a>
+            </div>
+            <div>
+                <a href="https://github.com/moana16">${new Date().getFullYear()} MOANA</a>
+            </div>
+        `;
+    }
+}
+exports.default = TheFooter;
+
+},{"../core/jimin":"cc3nh","../store/about":"4RAJO","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cc3nh":[function(require,module,exports) {
 ///// Component /////
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -720,7 +746,19 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"kmAYJ":[function(require,module,exports) {
+},{}],"4RAJO":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jimin = require("../core/jimin");
+exports.default = new (0, _jimin.Store)({
+    photo: "https://avatars.githubusercontent.com/u/65649035?s=96&v=4",
+    name: "MOANA / KimJiMin",
+    email: "moana16@naver.com",
+    blog: "https://chichi-dev.tistory.com/",
+    github: "https://github.com/moana16"
+});
+
+},{"../core/jimin":"cc3nh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kmAYJ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jimin = require("../core/jimin");
@@ -781,44 +819,6 @@ class TheHeader extends (0, _jimin.Component) {
 }
 exports.default = TheHeader;
 
-},{"../core/jimin":"cc3nh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dBS3Y":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jimin = require("../core/jimin");
-var _about = require("../store/about");
-var _aboutDefault = parcelHelpers.interopDefault(_about);
-class TheFooter extends (0, _jimin.Component) {
-    constructor(){
-        super({
-            tagName: "footer"
-        });
-    }
-    render() {
-        const { github } = (0, _aboutDefault.default).state;
-        this.el.innerHTML = `
-            <div>
-                <a href="${github}">GitHub Repository</a>
-            </div>
-            <div>
-                <a href="https://github.com/moana16">${new Date().getFullYear()} MOANA</a>
-            </div>
-        `;
-    }
-}
-exports.default = TheFooter;
-
-},{"../core/jimin":"cc3nh","../store/about":"4RAJO","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4RAJO":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jimin = require("../core/jimin");
-exports.default = new (0, _jimin.Store)({
-    photo: "https://avatars.githubusercontent.com/u/65649035?s=96&v=4",
-    name: "MOANA / KimJiMin",
-    email: "moana16@naver.com",
-    blog: "https://chichi-dev.tistory.com/",
-    github: "https://github.com/moana16"
-});
-
 },{"../core/jimin":"cc3nh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3L9mC":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -850,7 +850,32 @@ exports.default = (0, _jimin.createRouter)([
     } //모든 페이지와 모두 일치할수 있는 정규표현식
 ]);
 
-},{"../core/jimin":"cc3nh","./Home":"0JSNG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./Movie":"1LTyN","./About":"gdB30","./NotFound":"4fDiL"}],"0JSNG":[function(require,module,exports) {
+},{"../core/jimin":"cc3nh","./About":"gdB30","./Home":"0JSNG","./Movie":"1LTyN","./NotFound":"4fDiL","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gdB30":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jimin = require("../core/jimin");
+var _about = require("../store/about");
+var _aboutDefault = parcelHelpers.interopDefault(_about);
+class About extends (0, _jimin.Component) {
+    render() {
+        const { photo, name, email, blog, github } = (0, _aboutDefault.default).state;
+        this.el.classList.add("container", "about");
+        this.el.innerHTML = `
+        <div 
+            class="photo"
+            style="background-image: url(${photo})"></div>
+        <p class="name">${name}</p>
+        <p>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=${email}" target="_blank">${email}</a>
+        </p>
+        <p class="github"><a href="${github}" target="_blank">GitHub</a></p>
+        <p class="blog"><a href="${blog}" target="_blank">Blog</a></p>
+        `;
+    }
+}
+exports.default = About;
+
+},{"../core/jimin":"cc3nh","../store/about":"4RAJO","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"0JSNG":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _headline = require("../componets/Headline");
@@ -874,7 +899,7 @@ class Home extends (0, _jimin.Component) {
 }
 exports.default = Home;
 
-},{"../core/jimin":"cc3nh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../componets/Headline":"iGnvm","../componets/Search":"aeHKb","../componets/MovieList":"1BJN2","../componets/MovieListMore":"4qWDr"}],"iGnvm":[function(require,module,exports) {
+},{"../componets/Headline":"iGnvm","../componets/MovieList":"1BJN2","../componets/MovieListMore":"4qWDr","../componets/Search":"aeHKb","../core/jimin":"cc3nh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iGnvm":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jimin = require("../core/jimin");
@@ -896,87 +921,6 @@ class Headline extends (0, _jimin.Component) {
     }
 }
 exports.default = Headline;
-
-},{"../core/jimin":"cc3nh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aeHKb":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jimin = require("../core/jimin");
-var _movie = require("../store/movie");
-var _movieDefault = parcelHelpers.interopDefault(_movie);
-class Search extends (0, _jimin.Component) {
-    render() {
-        this.el.classList.add("search");
-        this.el.innerHTML = `
-            <input 
-                value = "${(0, _movieDefault.default).state.searchText}" 
-                placeholder="Enter the movie title to search!"/>
-            <button class="btn btn-primary">Search!</button>
-        `;
-        const inputEl = this.el.querySelector("input");
-        inputEl.addEventListener("input", ()=>{
-            (0, _movieDefault.default).state.searchText = inputEl.value;
-        });
-        inputEl.addEventListener("keydown", (e)=>{
-            if (e.key === "Enter" && (0, _movieDefault.default).state.searchText.trim()) (0, _movie.searchMovies)(1);
-        });
-        const btnEl = this.el.querySelector("button");
-        btnEl.addEventListener("click", ()=>{
-            if ((0, _movieDefault.default).state.searchText.trim()) (0, _movie.searchMovies)(1);
-        });
-    }
-}
-exports.default = Search;
-
-},{"../core/jimin":"cc3nh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../store/movie":"kq1bo"}],"kq1bo":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "searchMovies", ()=>searchMovies);
-parcelHelpers.export(exports, "getMovieDetails", ()=>getMovieDetails);
-var _jimin = require("../core/jimin");
-const store = new (0, _jimin.Store)({
-    searchText: "",
-    page: 1,
-    pageMax: 1,
-    movies: [],
-    movie: {},
-    loading: false,
-    message: "Search for the movie title!"
-});
-exports.default = store;
-const searchMovies = async (page)=>{
-    store.state.loading = true;
-    store.state.page = page;
-    if (page === 1) {
-        store.state.movies = [];
-        store.state.message = "";
-    }
-    try {
-        const res = await fetch(`https://omdbapi.com?apikey=7035c60c&s=${store.state.searchText}&page=${page}`);
-        const { Search, totalResults, Response, Error } = await res.json();
-        if (Response === "True") {
-            store.state.movies = [
-                ...store.state.movies,
-                ...Search
-            ];
-            store.state.pageMax = Math.ceil(Number(totalResults) / 10);
-        } else {
-            store.state.message = Error;
-            store.state.pageMax = 1;
-        }
-    } catch (error) {
-        console.log("searchMovies error:", error);
-    } finally{
-        store.state.loading = false;
-    }
-};
-const getMovieDetails = async (id)=>{
-    try {
-        const res = await fetch(`https://omdbapi.com?apikey=7035c60c&i=${id}&plot=full`);
-        store.state.movie = await res.json();
-    } catch (error) {
-        console.log("getMovieDetails error:", error);
-    }
-};
 
 },{"../core/jimin":"cc3nh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1BJN2":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -1015,7 +959,69 @@ class MovieList extends (0, _jimin.Component) {
 }
 exports.default = MovieList;
 
-},{"../core/jimin":"cc3nh","../store/movie":"kq1bo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./MovieItem":"1c0Ro"}],"1c0Ro":[function(require,module,exports) {
+},{"../core/jimin":"cc3nh","../store/movie":"kq1bo","./MovieItem":"1c0Ro","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kq1bo":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "searchMovies", ()=>searchMovies);
+parcelHelpers.export(exports, "getMovieDetails", ()=>getMovieDetails);
+var _jimin = require("../core/jimin");
+const store = new (0, _jimin.Store)({
+    searchText: "",
+    page: 1,
+    pageMax: 1,
+    movies: [],
+    movie: {},
+    loading: false,
+    message: "Search for the movie title!"
+});
+exports.default = store;
+const searchMovies = async (page)=>{
+    store.state.loading = true;
+    store.state.page = page;
+    if (page === 1) {
+        store.state.movies = [];
+        store.state.message = "";
+    }
+    try {
+        const res = await fetch("/api/movie", {
+            method: "POST",
+            body: JSON.stringify({
+                title: store.state.searchText,
+                page
+            })
+        });
+        const { Search, totalResults, Response, Error } = await res.json();
+        if (Response === "True") {
+            store.state.movies = [
+                ...store.state.movies,
+                ...Search
+            ];
+            store.state.pageMax = Math.ceil(Number(totalResults) / 10);
+        } else {
+            store.state.message = Error;
+            store.state.pageMax = 1;
+        }
+    } catch (error) {
+        console.log("searchMovies error:", error);
+    } finally{
+        store.state.loading = false;
+    }
+};
+const getMovieDetails = async (id)=>{
+    try {
+        const res = await fetch("/api/movie", {
+            method: "POST",
+            body: JSON.stringify({
+                id
+            })
+        });
+        store.state.movie = await res.json();
+    } catch (error) {
+        console.log("getMovieDetails error:", error);
+    }
+};
+
+},{"../core/jimin":"cc3nh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1c0Ro":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jimin = require("../core/jimin");
@@ -1044,7 +1050,7 @@ class MovieItem extends (0, _jimin.Component) {
 }
 exports.default = MovieItem;
 
-},{"../core/jimin":"cc3nh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../store/movie":"kq1bo"}],"4qWDr":[function(require,module,exports) {
+},{"../core/jimin":"cc3nh","../store/movie":"kq1bo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4qWDr":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jimin = require("../core/jimin");
@@ -1071,7 +1077,37 @@ class MovieListMore extends (0, _jimin.Component) {
 }
 exports.default = MovieListMore;
 
-},{"../core/jimin":"cc3nh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../store/movie":"kq1bo"}],"1LTyN":[function(require,module,exports) {
+},{"../core/jimin":"cc3nh","../store/movie":"kq1bo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aeHKb":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jimin = require("../core/jimin");
+var _movie = require("../store/movie");
+var _movieDefault = parcelHelpers.interopDefault(_movie);
+class Search extends (0, _jimin.Component) {
+    render() {
+        this.el.classList.add("search");
+        this.el.innerHTML = `
+            <input 
+                value = "${(0, _movieDefault.default).state.searchText}" 
+                placeholder="Enter the movie title to search!"/>
+            <button class="btn btn-primary">Search!</button>
+        `;
+        const inputEl = this.el.querySelector("input");
+        inputEl.addEventListener("input", ()=>{
+            (0, _movieDefault.default).state.searchText = inputEl.value;
+        });
+        inputEl.addEventListener("keydown", (e)=>{
+            if (e.key === "Enter" && (0, _movieDefault.default).state.searchText.trim()) (0, _movie.searchMovies)(1);
+        });
+        const btnEl = this.el.querySelector("button");
+        btnEl.addEventListener("click", ()=>{
+            if ((0, _movieDefault.default).state.searchText.trim()) (0, _movie.searchMovies)(1);
+        });
+    }
+}
+exports.default = Search;
+
+},{"../core/jimin":"cc3nh","../store/movie":"kq1bo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1LTyN":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jimin = require("../core/jimin");
@@ -1138,32 +1174,7 @@ class Movie extends (0, _jimin.Component) {
 }
 exports.default = Movie;
 
-},{"../core/jimin":"cc3nh","../store/movie":"kq1bo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gdB30":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jimin = require("../core/jimin");
-var _about = require("../store/about");
-var _aboutDefault = parcelHelpers.interopDefault(_about);
-class About extends (0, _jimin.Component) {
-    render() {
-        const { photo, name, email, blog, github } = (0, _aboutDefault.default).state;
-        this.el.classList.add("container", "about");
-        this.el.innerHTML = `
-        <div 
-            class="photo"
-            style="background-image: url(${photo})"></div>
-        <p class="name">${name}</p>
-        <p>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=${email}" target="_blank">${email}</a>
-        </p>
-        <p class="github"><a href="${github}" target="_blank">GitHub</a></p>
-        <p class="blog"><a href="${blog}" target="_blank">Blog</a></p>
-        `;
-    }
-}
-exports.default = About;
-
-},{"../core/jimin":"cc3nh","../store/about":"4RAJO","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4fDiL":[function(require,module,exports) {
+},{"../core/jimin":"cc3nh","../store/movie":"kq1bo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4fDiL":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jimin = require("../core/jimin");
